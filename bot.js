@@ -56,7 +56,7 @@ client.on('message', async message => {
  
 });
  
-const developers1 = ["375309562212909071"]
+const developers1 = ["606525959000293378"]
 client1.on('message', message => {
     var argresult = message.content.split(`).slice(1).join(' ');
       if (!developers1.includes(message.author.id)) return;
