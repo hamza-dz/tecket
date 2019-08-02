@@ -4,7 +4,7 @@ client.on('message', async message => {
  
    if (message.content.startsWith("-new")) {  
         const reason = message.content.split(" ").slice(1).join(" ");  
-        if (!message.guild.roles.exists("name", "ticket")) return message.channel.send(`لازم تسوي رتبة اسمها \`ticket\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
+        if (!message.guild.roles.exists("name", "ticket")) return message.channel.send(`لازم تسوي رتبة اسمها *** \`ticket\` ***وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
         if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
         message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
             let role = message.guild.roles.find("name", "ticket");
@@ -21,10 +21,10 @@ client.on('message', async message => {
                 SEND_MESSAGES: true,
                 READ_MESSAGES: true
             });
-            message.channel.send(`:white_check_mark: تم انشاء تذكرتك, #${c.name}. :heart: `);
+            message.channel.send(`:white_check_mark:*** تم انشاء تذكرتك ***, #${c.name}. :heart: `);
             const embed = new Discord.RichEmbed()
                 .setColor(d1631e)
-                .addField(`Hey ${message.author.username}!`, `:white_check_mark:  تم انشاء تذكرتك, #ticket`)
+                .addField(`Hey ${message.author.username}!`, `:white_check_mark: *** تم انشاء تذكرتك *** , #ticket`)
                 .setTimestamp();
             c.send({
                 embed: embed
@@ -36,7 +36,7 @@ client.on('message', async message => {
   if (message.content.startsWith("-close")) {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
-       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب-confirm`)
+       message.channel.send(`*** هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب *** `-confirm` `)
            .then((m) => {
                message.channel.awaitMessages(response => response.content === '-confirm', {
                        max: 1,
@@ -47,7 +47,7 @@ client.on('message', async message => {
                        message.channel.delete();
                    })  
                    .catch(() => {
-                       m.edit('لم يتم تقفيل التكت').then(m2 => {
+                       m.edit(' *** لم يتم تقفيل التكت *** ').then(m2 => {
                            m2.delete();
                        }, 3000);
                    });
