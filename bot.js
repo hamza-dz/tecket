@@ -23,7 +23,7 @@ client.on('message', async message => {
             });
             message.channel.send(`:white_check_mark:*** تم انشاء تذكرتك ***, #${c.name}. :heart: `);
             const embed = new Discord.RichEmbed()
-                .setColor(d1631e)
+                .setColor(#00FFFF)
                 .addField(`Hey ${message.author.username}!`, `:white_check_mark: *** تم انشاء تذكرتك *** , #ticket`)
                 .setTimestamp();
             c.send({
